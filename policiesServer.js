@@ -9,8 +9,12 @@ app.get("/terms", function(req, res){
   res.sendFile(__dirname + "/termsConditions.html");
 });
 
+app.get("/support", function(req, res){
+  res.sendFile(__dirname + "/foodFindSupport.html");
+});
+
 app.get("/", function(req, res){
-  res.sendFile(__dirname + "/termsConditions.html");
+  res.sendFile(__dirname + "/mainpage.html");
 });
 
 app.get("/:resource", function(req, res){
