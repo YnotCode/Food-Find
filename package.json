@@ -2,9 +2,9 @@
   "name": "food-find",
   "version": "1.0.0",
   "description": "my setup file for Food Find",
-  "main": "privacyPolicyServer.js",
+  "main": "policiesServer.js",
   "scripts": {
-    "start": "node privacyPolicyServer.js"
+    "start": "node policiesServer.js"
   },
   "keywords": [
     "Food",
