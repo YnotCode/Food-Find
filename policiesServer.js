@@ -18,5 +18,5 @@ app.get("/:resource", function(req, res){
   res.sendFile(__dirname + "/" + resource);
 });
 
-
-server.listen(5700);
+var port = process.env.PORT;
+server.listen(port);
