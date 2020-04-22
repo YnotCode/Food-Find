@@ -13,7 +13,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs": "*",
-    "http": "*",
+    "http": "*"
   },
   "author": "Anthony Varkey",
   "license": "MPL-1.1"
