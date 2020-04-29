@@ -1,8 +1,8 @@
 var app = require("express")();
 var server = require("http").Server(app);
-const accountSid = process.env.ACCOUNT_SID;
-const authToken = process.env.AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
+var accountSid = process.env.ACCOUNT_SID;
+var authToken = process.env.AUTH_TOKEN;
+var client = require('twilio')(accountSid, authToken);
 var formidable = require("formidable");
 var neatCsv = require("neat-csv");
 var fs = require("fs");
@@ -33,8 +33,8 @@ function searchWalmart(term, callback){
 }
 
 //Kroger API auth info
-const krogerId = process.env.KROGER_ID;
-const krogerSecret =process.env.KROGER_SECRET;
+var krogerId = process.env.KROGER_ID;
+var krogerSecret =process.env.KROGER_SECRET;
 
 var results = [];
 
