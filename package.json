@@ -1,0 +1,28 @@
+{
+  "name": "food-find",
+  "version": "1.0.0",
+  "description": "my setup file for Food Find",
+  "main": "groceryBot.js",
+  "scripts": {
+    "start": "node groceryBot.js"
+  },
+  "keywords": [
+    "food",
+    "find",
+    "groceries",
+    "text"
+  ],
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "*",
+    "http": "*",
+    "request": "^2.88.2",
+    "socket.io": "^2.3.0",
+    "neat-csv": "*",
+    "twilio": "^3.42.2",
+    "formidable": "*",
+    "puppeteer": "*"
+  },
+  "author": "Anthony Varkey",
+  "license": "MPL-1.1"
+}
