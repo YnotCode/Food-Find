@@ -25,6 +25,8 @@ function searchWalmart(term, callback){
     await page.click('[data-automation-id=name]');
     results.push(await page.url());
     callback();
+    
+    browser.disconnect();
 
 
   })();
@@ -275,7 +277,7 @@ app.post("/sms", function(req, res){
         console.log("Not a simulation");
         var twiml =  new MessagingResponse();
         var message = twiml.message("Here are the best places to get '" + item + "' near you:");
-        var newMessage = twiml.message(results[0] + "\n" + results[1] + "\n" + results[2]);
+        var newMessage = twiml.message(results[0] + "\n" + "\n" + results[1] + "\n" + "\n" + results[2] + "\n" + "\n" + results[3]);
         res.writeHead(200, {'Content-Type':'text/xml'});
         res.end(twiml.toString());
       }
