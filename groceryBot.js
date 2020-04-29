@@ -67,6 +67,8 @@ function makeActualRequest(item, location, callback){
         url = url.replace(/ /g, "-");
         url = url.replace(/®/g, "");
         url = url.replace(/%/g, "");
+        url = url.replace(/™/g, "");
+        url = url.replace(/©/g, "");
         if (i == 0){
           results = [];
         }
