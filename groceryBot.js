@@ -16,9 +16,8 @@ function searchWalmart(term, callback){
 
   (async() => {
 
-    console.log("WOW!")
 
-    const browser = await puppeteer.launch({headless: true});
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto("https://grocery.walmart.com/search/?query=" + term);
     await page.waitForSelector('[data-automation-id=name]');
@@ -27,15 +26,6 @@ function searchWalmart(term, callback){
     results.push(await page.url());
     callback();
 
-    /*setTimeout(async function(){
-
-    }, 1000);
-
-    setTimeout(async function(){
-
-
-
-    }, 1000);*/
 
   })();
 
