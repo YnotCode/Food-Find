@@ -62,20 +62,28 @@ function makeActualRequest(item, location, callback){
       var objBody = JSON.parse(body)
       for (var i = 0; i < 3; i++){
 
-        var currentItem = objBody.data[i];
-        var url = "kroger.com/p/" + currentItem.description + "/" + currentItem.upc;
-        url = url.replace(/ /g, "-");
-        url = url.replace(/®/g, "");
-        url = url.replace(/%/g, "");
-        url = url.replace(/™/g, "");
-        url = url.replace(/©/g, "");
-        if (i == 0){
-          results = [];
+        try{
+            var currentItem = objBody.data[i];
+            var url = "kroger.com/p/" + currentItem.description + "/" + currentItem.upc;
+            url = url.replace(/ /g, "-");
+            url = url.replace(/®/g, "");
+            url = url.replace(/%/g, "");
+            url = url.replace(/™/g, "");
+            url = url.replace(/©/g, "");
+            url = url.replace(/(/g, "");
+            url = url.replace(/)/g, "");
+            if (i == 0){
+              results = [];
+            }
+            results.push(url);
+            if (i == 2){
+              console.log("RESULTS: " + results);
+            }  
         }
-        results.push(url);
-        if (i == 2){
-          console.log("RESULTS: " + results);
+        catch(err){
+          results.push("No Kroger results...");
         }
+       
 
       }
     }
