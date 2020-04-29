@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      #headLabel{
+        font-size: 300%;
+        font-family: 'Sen', sans-serif;
+        color: white;
+      }
+      .w3-container{
+        font-family: 'Sen', sans-serif;
+        color: white;
+      }
+      .buffer{
+        height: 20%;
+      }
+      .minibuffer{
+        height: 10%;
+      }
+
+
+    </style>
+  </head>
+  <body style="background-color: #FE921B;">
+
+    <center>
+
+      <div class="w3-container">
+        <h1 id="headLabel">Food Find</h1>
+      </div>
+
+      <div class="w3-container buffer"></div>
+
+      <div class="w3-container">
+        <form id="mainform" action="/sms?simulator" method="post">
+          <div class="w3-container">
+            <label for="item">Query:</label>
+            <input id="item" type="text" name="Body"/>
+          </div>
+
+          <div class="w3-container minibuffer"></div>
+
+          <div name="identifier"></div>
+
+          <div class="w3-container">
+            <label for="zipInput">Zip Code</label>
+            <input id="zipInput" type="number" name="FromZip"/>
+          </div>
+
+          <div class="w3-container buffer"></div>
+
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+
+    </center>
+
+
+
+  </body>
+</html>
