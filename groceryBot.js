@@ -39,7 +39,7 @@ var krogerId = process.env.KROGER_ID;
 var krogerSecret =process.env.KROGER_SECRET;
 
 var results = [];
-
+/*
 function makeActualRequest(item, location, callback){
 
   var settings = {
@@ -102,9 +102,10 @@ function makeActualRequest(item, location, callback){
 }
 
 var token;
+*/
 var location;
 
-function getLocation(item, zipCode, callback){
+/*function getLocation(item, zipCode, callback){
 
 
   var options = {
@@ -124,22 +125,12 @@ function getLocation(item, zipCode, callback){
 
   });
 
-}
+}*/
 
 function setRequest(item, zipCode, callback){
   const options = {
-    url:"https://api.kroger.com/v1/connect/oauth2/token",
-    method:"post",
-    headers:{
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": "Basic " + new Buffer.from(krogerId + ":" + krogerSecret).toString("base64"),
-      "grant_type":"client_credentials"
-    },
-    form:{
-      "grant_type":"client_credentials",
-      "scope":"product.compact"
-    }
-
+    url:"http://massive-deer-66.serverless.social/krogerStuff/" + item + "/" + zipCode,
+    method:"get",
   }
   request(options, function(err, response, body){
     console.log("BODY of setRequest:");
@@ -149,9 +140,11 @@ function setRequest(item, zipCode, callback){
     }
     else{
       var jsonRes = JSON.parse(body);
-      token = jsonRes.access_token;
-      getLocation(item, zipCode, callback);
+      results = [];
+      results = jsonRes.data;
+      //getLocation(item, zipCode, callback);
       //makeActualRequest(item, location);
+      searchWalmart(item, callback);
     }
   });
 }
