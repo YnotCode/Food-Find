@@ -5,6 +5,6 @@ SETUP:
 
 Text 734-436-3607 with a request (ex: "Where can I get some coffee?") and get results immediately
 OR
-go to https://https://food-find-real.herokuapp.com/simulator for the web version
+go to http://1f3a781d.ngrok.io for the web version
 
 A project by Anthony Varkey for the 2020 April Twilio Hackathon
