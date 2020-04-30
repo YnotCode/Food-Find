@@ -142,7 +142,8 @@ function setRequest(item, zipCode, callback){
 
   }
   request(options, function(err, response, body){
-
+    console.log("BODY of setRequest:");
+    console.log(body);
     if (err){
       console.log(err);
     }
