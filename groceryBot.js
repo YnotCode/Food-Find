@@ -132,7 +132,7 @@ function setRequest(item, zipCode, callback){
     method:"post",
     headers:{
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": "Basic " + new Buffer(krogerId + ":" + krogerSecret).toString("base64"),
+      "Authorization": "Basic " + new Buffer.from(krogerId + ":" + krogerSecret).toString("base64"),
       "grant_type":"client_credentials"
     },
     form:{
