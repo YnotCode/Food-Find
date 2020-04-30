@@ -139,12 +139,17 @@ function setRequest(item, zipCode, callback){
       console.log(err);
     }
     else{
-      var jsonRes = JSON.parse(body);
-      results = [];
-      results = jsonRes.data;
-      //getLocation(item, zipCode, callback);
-      //makeActualRequest(item, location);
-      searchWalmart(item, callback);
+      try{
+          var jsonRes = JSON.parse(body);
+          results = [];
+          results = jsonRes.data;
+          //getLocation(item, zipCode, callback);
+          //makeActualRequest(item, location);
+      }
+      catch(err){
+          results = ["No 1st result from Kroger", "No 2nd result from Kroger", "No 3rd result from Kroger"];
+      }
+      searchWalmart(item, callback); 
     }
   });
 }
