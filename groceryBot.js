@@ -129,7 +129,7 @@ var location;
 
 function setRequest(item, zipCode, callback){
   const options = {
-    url:"http://massive-deer-66.serverless.social/krogerStuff/" + item + "/" + zipCode,
+    url:"http://ancient-shrimp-81.serverless.social/krogerStuff/" + item + "/" + zipCode,
     method:"get",
   }
   request(options, function(err, response, body){
