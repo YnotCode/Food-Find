@@ -39,7 +39,7 @@ var krogerId = process.env.KROGER_ID;
 var krogerSecret =process.env.KROGER_SECRET;
 
 var results = [];
-/*
+
 function makeActualRequest(item, location, callback){
 
   var settings = {
@@ -102,10 +102,10 @@ function makeActualRequest(item, location, callback){
 }
 
 var token;
-*/
+
 var location;
 
-/*function getLocation(item, zipCode, callback){
+function getLocation(item, zipCode, callback){
 
 
   var options = {
@@ -125,34 +125,37 @@ var location;
 
   });
 
-}*/
+}
 
 function setRequest(item, zipCode, callback){
   const options = {
-    url:"http://ancient-shrimp-81.serverless.social/krogerStuff/" + item + "/" + zipCode,
-    method:"get",
+    url:"https://api.kroger.com/v1/connect/oauth2/token",
+    method:"post",
+    headers:{
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": "Basic " + new Buffer(krogerId + ":" + krogerSecret).toString("base64"),
+      "grant_type":"client_credentials"
+    },
+    form:{
+      "grant_type":"client_credentials",
+      "scope":"product.compact"
+    }
+
   }
   request(options, function(err, response, body){
-    console.log("BODY of setRequest:");
-    console.log(body);
+
     if (err){
       console.log(err);
     }
     else{
-      try{
-          var jsonRes = JSON.parse(body);
-          results = [];
-          results = jsonRes.data;
-          //getLocation(item, zipCode, callback);
-          //makeActualRequest(item, location);
-      }
-      catch(err){
-          results = ["No 1st result from Kroger", "No 2nd result from Kroger", "No 3rd result from Kroger"];
-      }
-      searchWalmart(item, callback); 
+      var jsonRes = JSON.parse(body);
+      token = jsonRes.access_token;
+      getLocation(item, zipCode, callback);
+      //makeActualRequest(item, location);
     }
   });
 }
+
 
 
 
