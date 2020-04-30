@@ -48,13 +48,18 @@ function makeActualRequest(item, location, callback){
     method:"get",
     headers:{
       'Accept':"application/json",
-      'Authorization':"Bearer " + token
+      'Authorization':"Bearer " + token,
+      'Content-Type':"application/json",
     }
 
 
   };
   console.log("GETTING ITEM DATA");
   request(settings, function(err, response, body){
+    console.log("RESPONSE: ");
+    console.log(response);
+    console.log("BODY:");
+    console.log(body);
     if (err){
       console.log(err);
     }
