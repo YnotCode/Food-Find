@@ -8,3 +8,5 @@ OR
 go to http://1f3a781d.ngrok.io for the web version
 
 A project by Anthony Varkey for the 2020 April Twilio Hackathon
+
+UPDATE: The hackathon has now ended so this project is no longer available. The code still works if you would like to test and deploy the project yourself.
